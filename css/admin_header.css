@@ -1,0 +1,80 @@
+.header{
+   position: sticky;
+   top:0; left:0; right:0;
+   background-color: rgba(0, 0, 255, 0.7);
+   box-shadow: var(--box-shadow);
+   z-index: 1000;
+   border-bottom: var(--border);
+}
+
+.header .flex{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   position: relative;
+}
+
+.header .flex .logo{
+   font-size: 2.5rem;
+   color:var(--white);
+}
+
+.header .flex .logo span{
+   color:var(--white);
+}
+
+.header .flex .navbar a{
+   margin:0 1rem;
+   font-size: 2rem;
+   color:var(--white);
+}
+
+.header .flex .navbar a:hover{
+   color:var(--white);
+}
+
+.header .flex .icons > *{
+   font-size: 2.5rem;
+   cursor: pointer;
+   color:var(--white);
+   margin-left: 1.7rem;
+}
+
+.header .flex .icons > *:hover{
+   color:var(--white);
+}
+
+.header .flex .profile{
+   position: absolute;
+   top:125%; right:2rem;
+   background-color: rgba(0, 0, 255, 0.7);
+   box-shadow: var(--box-shadow);
+   border:var(--border);
+   border-radius: .5rem;
+   padding:2rem;
+   padding-top: 1rem;
+   width: 30rem;
+   display: none;
+   animation: fadeIn .2s linear;
+}
+
+@keyframes fadeIn {
+   0%{
+      transform: translateY(1rem);
+   }
+}
+
+.header .flex .profile p{
+   margin-bottom: 1rem;
+   font-size: 2rem;
+   text-align: center;
+   color:var(--white);
+}
+
+.header .flex .profile.active{
+   display: inline-block;
+}
+
+#menu-btn{
+   display: none;
+}
