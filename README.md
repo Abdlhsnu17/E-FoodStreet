@@ -201,3 +201,4 @@ sebelum dipakai sungguhan tercatat di [`docs/PRD.md`](docs/PRD.md) — yang utam
 password di-hash dengan SHA-1 tanpa salt (seharusnya `password_hash()`),
 `FILTER_SANITIZE_STRING` sudah deprecated sejak PHP 8.1, tidak ada proteksi
 CSRF, dan tidak ada validasi tipe/ukuran berkas saat unggah foto produk.
+# E-FoodStreet
