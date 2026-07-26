@@ -1,0 +1,37 @@
+# --- macOS / editor ---
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+.idea/
+.vscode/
+*.swp
+
+# --- Foto produk yang diunggah lewat panel admin ---
+# Gambar seed dari schema.sql sudah terlanjur di-track, jadi tetap ikut ter-push
+# (pola gitignore tidak berlaku untuk berkas yang sudah di-track). Yang diabaikan
+# hanya unggahan baru dari mesin masing-masing.
+public/assets/uploads/*
+
+# --- Dump & backup database lokal ---
+*.sql.gz
+*.dump
+database/backup/
+
+# --- Log & berkas sementara ---
+*.log
+tmp/
+temp/
+
+# --- Konfigurasi lokal / rahasia ---
+# connect.php masih di-track supaya proyek bisa langsung jalan setelah clone
+# (isinya hanya root tanpa password di localhost). Kalau nanti dipakai di server
+# sungguhan, aktifkan baris di bawah dan sediakan connect.example.php.
+# app/config/connect.php
+.env
+.env.*
+
+# --- Sisa toolchain yang tidak dipakai proyek ini ---
+node_modules/
+package-lock.json
+vendor/

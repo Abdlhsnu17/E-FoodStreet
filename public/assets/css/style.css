@@ -1,0 +1,1304 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* =========================================================
+   ABDIBITES — DESIGN SYSTEM
+   Tema: Hijau Segar
+   Satu-satunya sumber token. Jangan definisikan ulang :root
+   di file lain — dulu ada 3 salinan dan saling bentrok.
+   ========================================================= */
+
+:root{
+   /* warna utama */
+   --green:#15803d;
+   --green-dark:#166534;
+   --green-soft:#dcfce7;
+   --green-tint:#f0fdf4;
+
+   /* aksen — dipakai untuk harga & penekanan */
+   --orange:#ea580c;
+   --orange-soft:#ffedd5;
+
+   /* brand AbdiBites — dipakai logo */
+   --brand-dark:#3b2118;
+   --brand-orange:#e8801f;
+
+   /* netral */
+   --bg:#f7faf7;
+   --surface:#ffffff;
+   --ink:#14281d;
+   --muted:#5f7268;
+   --line:#e3ebe5;
+
+   /* status */
+   --red:#dc2626;
+   --red-soft:#fee2e2;
+   --amber:#f59e0b;
+
+   /* bentuk */
+   --radius:1.2rem;
+   --radius-lg:1.8rem;
+   --radius-pill:5rem;
+   --border:.1rem solid var(--line);
+
+   --shadow-sm:0 .1rem .2rem rgba(20,40,29,.06);
+   --shadow:0 .4rem 1.6rem rgba(20,40,29,.08);
+   --shadow-lg:0 1.2rem 3.2rem rgba(20,40,29,.12);
+
+   --ease:.25s cubic-bezier(.4,0,.2,1);
+}
+
+*{
+   font-family:'Plus Jakarta Sans', system-ui, sans-serif;
+   margin:0; padding:0;
+   box-sizing:border-box;
+   outline:none; border:none;
+   text-decoration:none;
+}
+
+*::selection{
+   background-color:var(--green);
+   color:#fff;
+}
+
+*:focus-visible{
+   outline:.3rem solid var(--green);
+   outline-offset:.2rem;
+}
+
+::-webkit-scrollbar{ height:.8rem; width:.8rem; }
+::-webkit-scrollbar-track{ background-color:var(--green-tint); }
+::-webkit-scrollbar-thumb{ background-color:var(--green); border-radius:var(--radius-pill); }
+
+html{
+   font-size:62.5%;          /* 1rem = 10px */
+   overflow-x:hidden;
+   scroll-behavior:smooth;
+   scroll-padding-top:8rem;
+}
+
+body{
+   background-color:var(--bg);
+   color:var(--ink);
+   min-height:100vh;
+   display:flex;
+   flex-direction:column;
+}
+
+img{ max-width:100%; display:block; }
+
+section{
+   margin:0 auto;
+   width:100%;
+   max-width:120rem;
+   padding:5rem 2rem;
+}
+
+/* ---------- judul ---------- */
+
+.title{
+   text-align:center;
+   margin-bottom:4rem;
+   font-size:3.6rem;
+   font-weight:800;
+   letter-spacing:-.05rem;
+   color:var(--ink);
+   text-transform:capitalize;
+}
+
+.title::after{
+   content:'';
+   display:block;
+   width:6rem; height:.4rem;
+   margin:1.2rem auto 0;
+   border-radius:var(--radius-pill);
+   background-color:var(--green);
+}
+
+.heading{
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   gap:.8rem;
+   flex-flow:column;
+   min-height:22rem;
+   padding:4rem 2rem;
+   background:
+      radial-gradient(circle at 15% 20%, rgba(21,128,61,.10), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(234,88,12,.08), transparent 45%),
+      var(--green-tint);
+   border-bottom:var(--border);
+}
+
+.heading h3{
+   font-size:4.2rem;
+   font-weight:800;
+   letter-spacing:-.1rem;
+   color:var(--ink);
+   text-transform:capitalize;
+   text-align:center;
+}
+
+.heading p{
+   font-size:1.6rem;
+   color:var(--muted);
+   font-weight:500;
+}
+
+.heading p a{ color:var(--green); font-weight:600; }
+.heading p a:hover{ text-decoration:underline; }
+
+/* ---------- tombol ---------- */
+
+.btn,
+.delete-btn,
+.option-btn{
+   margin-top:1rem;
+   display:inline-block;
+   font-size:1.5rem;
+   font-weight:600;
+   padding:1.2rem 2.8rem;
+   border-radius:var(--radius-pill);
+   cursor:pointer;
+   text-transform:capitalize;
+   text-align:center;
+   transition:var(--ease);
+   box-shadow:var(--shadow-sm);
+}
+
+.btn{
+   background-color:var(--green);
+   color:#fff;
+}
+
+.btn:hover{
+   background-color:var(--green-dark);
+   transform:translateY(-.2rem);
+   box-shadow:var(--shadow);
+}
+
+.option-btn{
+   background-color:var(--green-soft);
+   color:var(--green-dark);
+}
+
+.option-btn:hover{
+   background-color:var(--green);
+   color:#fff;
+   transform:translateY(-.2rem);
+}
+
+.delete-btn{
+   background-color:var(--red);
+   color:#fff;
+}
+
+.delete-btn:hover{
+   background-color:#b91c1c;
+   transform:translateY(-.2rem);
+   box-shadow:var(--shadow);
+}
+
+.disabled{
+   opacity:.45;
+   user-select:none;
+   pointer-events:none;
+}
+
+.flex-btn{
+   display:flex;
+   gap:1rem;
+   flex-wrap:wrap;
+}
+
+.flex-btn > *{ flex:1 1 auto; }
+
+/* ---------- pesan / notifikasi ---------- */
+
+.message{
+   position:sticky;
+   top:0;
+   z-index:1100;
+   max-width:120rem;
+   margin:1.5rem auto 0;
+   padding:1.4rem 2rem;
+   display:flex;
+   align-items:center;
+   gap:1rem;
+   justify-content:space-between;
+   background-color:var(--green-soft);
+   color:var(--green-dark);
+   border-left:.5rem solid var(--green);
+   border-radius:var(--radius);
+   box-shadow:var(--shadow);
+   animation:slideDown .3s var(--ease);
+}
+
+@keyframes slideDown{
+   from{ opacity:0; transform:translateY(-1rem); }
+}
+
+.message span{ font-size:1.5rem; font-weight:600; }
+
+.message i{
+   font-size:1.8rem;
+   color:var(--green-dark);
+   cursor:pointer;
+   opacity:.6;
+   transition:var(--ease);
+}
+
+.message i:hover{ opacity:1; transform:rotate(90deg); }
+
+.empty{
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius);
+   padding:3rem 2rem;
+   text-align:center;
+   width:100%;
+   font-size:1.6rem;
+   font-weight:500;
+   text-transform:capitalize;
+   color:var(--muted);
+   box-shadow:var(--shadow-sm);
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header{
+   position:sticky;
+   top:0; left:0; right:0;
+   z-index:1000;
+   background-color:rgba(255,255,255,.85);
+   backdrop-filter:blur(1.2rem);
+   -webkit-backdrop-filter:blur(1.2rem);
+   border-bottom:var(--border);
+}
+
+.header .flex{
+   display:flex;
+   align-items:center;
+   justify-content:space-between;
+   position:relative;
+   max-width:120rem;
+   margin:0 auto;
+   padding:1.6rem 2rem;
+}
+
+.header .flex .logo{
+   font-size:2.2rem;
+   font-weight:800;
+   letter-spacing:-.05rem;
+   color:var(--brand-dark);
+   display:flex;
+   align-items:center;
+   gap:.8rem;
+}
+
+.header .flex .logo span{ color:var(--brand-orange); }
+
+.header .flex .logo::before{
+   content:'';                      /* lambang tudung saji abdibites */
+   background-color:var(--brand-orange);
+   background-image:url('../images/logo-mark.svg');
+   background-size:78%;
+   background-position:center;
+   background-repeat:no-repeat;
+   width:3.4rem; height:3.4rem;
+   border-radius:var(--radius);
+   flex-shrink:0;
+}
+
+.header .flex .navbar a{
+   font-size:1.5rem;
+   font-weight:600;
+   color:var(--muted);
+   margin:0 .3rem;
+   padding:.8rem 1.4rem;
+   border-radius:var(--radius-pill);
+   transition:var(--ease);
+   text-transform:capitalize;
+   display:inline-block;
+}
+
+.header .flex .navbar a:hover{
+   color:var(--green-dark);
+   background-color:var(--green-soft);
+}
+
+.header .flex .icons{
+   display:flex;
+   align-items:center;
+   gap:.6rem;
+}
+
+.header .flex .icons > *{
+   font-size:1.7rem;
+   color:var(--ink);
+   cursor:pointer;
+   width:4.2rem; height:4.2rem;
+   border-radius:50%;
+   display:grid;
+   place-items:center;
+   transition:var(--ease);
+   position:relative;
+}
+
+.header .flex .icons > *:hover{
+   background-color:var(--green-soft);
+   color:var(--green-dark);
+}
+
+.header .flex .icons a[href="cart.php"]{ width:auto; padding:0 1.4rem; border-radius:var(--radius-pill); gap:.5rem; display:flex; }
+.header .flex .icons span{ font-size:1.3rem; font-weight:700; }
+
+#menu-btn{ display:none; }
+
+.header .flex .profile{
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   padding:2rem;
+   text-align:center;
+   position:absolute;
+   top:110%; right:2rem;
+   width:28rem;
+   display:none;
+   box-shadow:var(--shadow-lg);
+   animation:fadeIn .2s var(--ease);
+}
+
+.header .flex .profile.active{ display:inline-block; }
+
+@keyframes fadeIn{
+   from{ opacity:0; transform:translateY(-.8rem); }
+}
+
+.header .flex .profile .name{
+   font-size:1.7rem;
+   font-weight:700;
+   color:var(--ink);
+   margin-bottom:1.5rem;
+}
+
+.header .flex .profile .flex{
+   padding:0;
+   gap:.8rem;
+   display:flex;
+}
+
+.header .flex .profile .flex > *{ flex:1; margin-top:0; font-size:1.3rem; padding:1rem 1.2rem; }
+
+.header .flex .profile .account{
+   margin-top:1.5rem;
+   font-size:1.4rem;
+   color:var(--muted);
+}
+
+.header .flex .profile .account a{ color:var(--green); font-weight:600; }
+.header .flex .profile .account a:hover{ text-decoration:underline; }
+
+/* =========================================================
+   BERANDA — hero
+   ========================================================= */
+
+.hero{ padding-top:3rem; }
+
+.hero .slide{
+   display:flex;
+   align-items:center;
+   flex-wrap:wrap-reverse;
+   gap:3rem;
+   padding:3rem;
+   border-radius:var(--radius-lg);
+   background:
+      radial-gradient(circle at 100% 0%, rgba(234,88,12,.08), transparent 50%),
+      var(--green-tint);
+}
+
+.hero .slide .image{ flex:1 1 36rem; }
+
+.hero .slide .image img{
+   width:100%;
+   filter:drop-shadow(0 2rem 3rem rgba(20,40,29,.18));
+}
+
+.hero .slide .content{ flex:1 1 36rem; }
+
+.hero .slide .content span{
+   font-size:1.4rem;
+   font-weight:700;
+   text-transform:uppercase;
+   letter-spacing:.15rem;
+   color:var(--green);
+   background-color:var(--green-soft);
+   padding:.6rem 1.4rem;
+   border-radius:var(--radius-pill);
+   display:inline-block;
+}
+
+.hero .slide .content h3{
+   margin:1.5rem 0;
+   font-size:5.4rem;
+   font-weight:800;
+   line-height:1.1;
+   letter-spacing:-.2rem;
+   color:var(--ink);
+   text-transform:capitalize;
+}
+
+.swiper-pagination-bullet{ background-color:var(--muted); }
+.swiper-pagination-bullet-active{ background-color:var(--green); }
+.swiper-button-next, .swiper-button-prev{ color:var(--green); }
+
+/* ---------- kategori ---------- */
+
+.category .box-container{
+   display:grid;
+   grid-template-columns:repeat(auto-fit, minmax(16rem, 1fr));
+   gap:1.5rem;
+}
+
+.category .box-container .box{
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   padding:2.5rem 1.5rem;
+   text-align:center;
+   transition:var(--ease);
+   box-shadow:var(--shadow-sm);
+}
+
+.category .box-container .box img{
+   width:100%;
+   height:7rem;
+   object-fit:contain;
+   margin:0 auto;
+   transition:var(--ease);
+}
+
+.category .box-container .box h3{
+   font-size:1.5rem;
+   font-weight:600;
+   margin-top:1.5rem;
+   color:var(--ink);
+   text-transform:capitalize;
+}
+
+.category .box-container .box:hover{
+   background-color:var(--green-tint);
+   border-color:var(--green);
+   transform:translateY(-.5rem);
+   box-shadow:var(--shadow);
+}
+
+.category .box-container .box:hover img{ transform:scale(1.08); }
+.category .box-container .box:hover h3{ color:var(--green-dark); }
+
+/* =========================================================
+   PRODUK — kartu
+   ========================================================= */
+
+.products .box-container{
+   display:grid;
+   grid-template-columns:repeat(auto-fill, minmax(26rem, 1fr));
+   align-items:flex-start;
+   gap:2rem;
+}
+
+.products .box-container .box{
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   padding:1.5rem;
+   position:relative;
+   overflow:hidden;
+   transition:var(--ease);
+   box-shadow:var(--shadow-sm);
+
+   /* tombol/harga tetap sejajar antar kartu walau nama produk
+      memakan dua baris */
+   display:flex;
+   flex-direction:column;
+   height:100%;
+}
+
+.products .box-container .box .flex,
+.products .box-container .box .flex-btn{ margin-top:auto; }
+
+.products .box-container .box:hover{
+   transform:translateY(-.5rem);
+   box-shadow:var(--shadow-lg);
+   border-color:var(--green-soft);
+}
+
+.products .box-container .box img{
+   height:20rem;
+   width:100%;
+   object-fit:contain;
+   margin-bottom:1.5rem;
+   border-radius:var(--radius);
+   background-color:#fff;
+   border:var(--border);
+   padding:1.5rem;
+   transition:var(--ease);
+}
+
+.products .box-container .box:hover img{ transform:scale(1.04); }
+
+/* tombol aksi mengambang di atas gambar */
+.products .box-container .box .fa-eye{
+   position:absolute;
+   top:2.2rem;
+   height:4rem;
+   width:4rem;
+   border-radius:50%;
+   background-color:var(--surface);
+   box-shadow:var(--shadow);
+   cursor:pointer;
+   font-size:1.5rem;
+   color:var(--ink);
+   transition:var(--ease);
+   display:grid;
+   place-items:center;
+   z-index:2;
+}
+
+.products .box-container .box .fa-eye:hover{
+   background-color:var(--green);
+   color:#fff;
+}
+
+/* selalu terlihat — di layar sentuh tidak ada hover */
+.products .box-container .box .fa-eye{ right:2.2rem; }
+
+/* tombol tambah ke keranjang di dalam kartu produk */
+.products .box-container .box .cart-btn{
+   width:100%;
+   margin-top:1.5rem;
+   padding:1.2rem 2rem;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   gap:1rem;
+   border-radius:var(--radius-pill);
+   font-size:1.5rem;
+   font-weight:600;
+   color:#fff;
+   background-color:var(--green);
+   cursor:pointer;
+   text-transform:capitalize;
+   transition:var(--ease);
+}
+
+.products .box-container .box .cart-btn:hover{
+   background-color:var(--green-dark);
+   box-shadow:var(--shadow);
+}
+
+.products .box-container .box .cat{
+   font-size:1.2rem;
+   font-weight:700;
+   text-transform:uppercase;
+   letter-spacing:.1rem;
+   color:var(--green);
+   background-color:var(--green-soft);
+   padding:.4rem 1rem;
+   border-radius:var(--radius-pill);
+   display:inline-block;
+}
+
+/* kartu adalah flex column, jadi pil harus menolak stretch
+   agar lebarnya mengikuti teks, bukan selebar kartu */
+.products .box-container .box .cat{ align-self:flex-start; }
+
+.products .box-container .box .cat:hover{ background-color:var(--green); color:#fff; }
+
+.products .box-container .box .name{
+   font-size:1.8rem;
+   font-weight:700;
+   color:var(--ink);
+   margin:1rem 0 .5rem;
+   line-height:1.35;
+}
+
+.products .box-container .box .flex{
+   display:flex;
+   align-items:center;
+   gap:1rem;
+   margin-top:1.5rem;
+   flex-wrap:wrap;
+}
+
+.products .box-container .box .flex .price{
+   margin-right:auto;
+   font-size:2rem;
+   font-weight:800;
+   color:var(--orange);
+}
+
+.products .box-container .box .flex .price span{
+   color:var(--muted);
+   font-size:1.4rem;
+   font-weight:600;
+}
+
+.products .box-container .box .flex .qty,
+.products .box-container .box .flex input[type="number"]{
+   padding:.9rem 1rem;
+   width:7rem;
+   border:var(--border);
+   border-radius:var(--radius);
+   font-size:1.4rem;
+   font-weight:600;
+   color:var(--ink);
+   background-color:var(--bg);
+}
+
+.products .box-container .box .flex .qty:focus{ border-color:var(--green); }
+
+.products .box-container .box .flex .fa-edit{
+   width:4.4rem; height:4.4rem;
+   background-color:var(--green-soft);
+   color:var(--green-dark);
+   border-radius:var(--radius);
+   cursor:pointer;
+   font-size:1.5rem;
+   transition:var(--ease);
+}
+
+.products .box-container .box .flex .fa-edit:hover{
+   background-color:var(--green);
+   color:#fff;
+}
+
+.products .box-container .box .fa-times{
+   position:absolute;
+   top:2.2rem; right:2.2rem;
+   background-color:var(--red-soft);
+   color:var(--red);
+   border-radius:50%;
+   height:4rem; width:4rem;
+   display:grid;
+   place-items:center;
+   cursor:pointer;
+   font-size:1.5rem;
+   z-index:2;
+   transition:var(--ease);
+}
+
+.products .box-container .box .fa-times:hover{ background-color:var(--red); color:#fff; }
+
+.products .box-container .box .sub-total{
+   margin-top:1.2rem;
+   padding-top:1.2rem;
+   border-top:var(--border);
+   font-size:1.4rem;
+   font-weight:600;
+   color:var(--muted);
+}
+
+.products .box-container .box .sub-total span{ color:var(--orange); font-weight:800; }
+
+.products .more-btn{ margin-top:3rem; text-align:center; }
+
+.products .cart-total{
+   display:flex;
+   align-items:center;
+   gap:1.5rem;
+   flex-wrap:wrap;
+   justify-content:space-between;
+   margin-top:3rem;
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   padding:2rem 2.5rem;
+   box-shadow:var(--shadow-sm);
+}
+
+.products .cart-total p{
+   font-size:1.8rem;
+   font-weight:600;
+   color:var(--muted);
+}
+
+.products .cart-total p span{ color:var(--orange); font-weight:800; font-size:2.4rem; }
+.products .cart-total .btn{ margin-top:0; }
+.products .cart-total .flex-btn{ margin:0; }
+
+/* =========================================================
+   TENTANG / LANGKAH / ULASAN
+   ========================================================= */
+
+.about .row{
+   display:flex;
+   align-items:center;
+   flex-wrap:wrap;
+   gap:3rem;
+}
+
+.about .row .image{ flex:1 1 36rem; }
+
+.about .row .image img{
+   width:100%;
+   border-radius:var(--radius-lg);
+}
+
+.about .row .content{ flex:1 1 36rem; }
+
+.about .row .content h3{
+   font-size:2.8rem;
+   font-weight:800;
+   letter-spacing:-.05rem;
+   color:var(--ink);
+   text-transform:capitalize;
+   margin-bottom:1rem;
+}
+
+.about .row .content p{
+   padding:.5rem 0;
+   line-height:1.9;
+   font-size:1.55rem;
+   color:var(--muted);
+}
+
+.steps .box-container{
+   display:grid;
+   grid-template-columns:repeat(auto-fit, minmax(24rem, 1fr));
+   gap:2rem;
+   align-items:flex-start;
+}
+
+.steps .box-container .box{
+   text-align:center;
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   padding:3rem 2rem;
+   transition:var(--ease);
+   box-shadow:var(--shadow-sm);
+}
+
+.steps .box-container .box:hover{
+   transform:translateY(-.5rem);
+   box-shadow:var(--shadow);
+   border-color:var(--green-soft);
+}
+
+.steps .box-container .box img{
+   height:10rem;
+   width:100%;
+   object-fit:contain;
+   margin-bottom:1.5rem;
+}
+
+.steps .box-container .box h3{
+   font-size:1.9rem;
+   font-weight:700;
+   margin-bottom:1rem;
+   color:var(--ink);
+   text-transform:capitalize;
+}
+
+.steps .box-container .box p{
+   line-height:1.9;
+   font-size:1.5rem;
+   color:var(--muted);
+}
+
+.reviews .slide{
+   margin-bottom:4rem;
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   padding:3rem 2.5rem;
+   text-align:center;
+   box-shadow:var(--shadow-sm);
+}
+
+.reviews .slide img{
+   height:8rem; width:8rem;
+   border-radius:50%;
+   object-fit:cover;
+   margin:0 auto;
+   border:.3rem solid var(--green-soft);
+}
+
+.reviews .slide p{
+   padding:1.5rem 0;
+   line-height:1.9;
+   font-size:1.5rem;
+   color:var(--muted);
+   font-style:italic;
+}
+
+.reviews .slide .stars{
+   display:inline-block;
+   padding:.6rem 1.4rem;
+   background-color:var(--green-tint);
+   border-radius:var(--radius-pill);
+}
+
+.reviews .slide .stars i{ font-size:1.4rem; color:var(--amber); }
+
+.reviews .slide h3{
+   font-size:1.7rem;
+   font-weight:700;
+   margin-top:1.5rem;
+   text-transform:capitalize;
+   color:var(--ink);
+}
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.contact .row{
+   display:flex;
+   align-items:center;
+   flex-wrap:wrap;
+   gap:3rem;
+}
+
+.contact .row .image{ flex:1 1 36rem; }
+.contact .row .image img{ width:100%; border-radius:var(--radius-lg); }
+
+.contact .row form{
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   flex:1 1 36rem;
+   padding:3rem;
+   box-shadow:var(--shadow);
+}
+
+.contact .row form h3{
+   font-size:2.4rem;
+   font-weight:800;
+   color:var(--ink);
+   margin-bottom:2rem;
+   text-transform:capitalize;
+}
+
+/* satu gaya input untuk seluruh situs */
+.box,
+input[type="text"], input[type="email"], input[type="password"],
+input[type="number"], input[type="date"], select, textarea{
+   font-family:inherit;
+}
+
+.contact .row form .box,
+.form-container form .box,
+.checkout form .user-info .box,
+.search-form form .box{
+   margin:.8rem 0;
+   font-size:1.5rem;
+   color:var(--ink);
+   background-color:var(--bg);
+   border:var(--border);
+   border-radius:var(--radius);
+   padding:1.4rem 1.6rem;
+   width:100%;
+   transition:var(--ease);
+}
+
+.contact .row form .box:focus,
+.form-container form .box:focus,
+.checkout form .user-info .box:focus,
+.search-form form .box:focus{
+   border-color:var(--green);
+   background-color:var(--surface);
+   box-shadow:0 0 0 .3rem var(--green-soft);
+}
+
+.contact .row form textarea{
+   height:14rem;
+   resize:vertical;
+}
+
+.search-form form{
+   display:flex;
+   gap:1rem;
+   max-width:70rem;
+   margin:0 auto;
+}
+
+.search-form form .box{ margin:0; }
+
+.search-form form .fa-search{
+   width:5.5rem;
+   background-color:var(--green);
+   color:#fff;
+   border-radius:var(--radius);
+   cursor:pointer;
+   font-size:1.8rem;
+   transition:var(--ease);
+}
+
+.search-form form .fa-search:hover{ background-color:var(--green-dark); }
+
+.form-container form{
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   margin:0 auto;
+   max-width:46rem;
+   padding:3.5rem 3rem;
+   text-align:center;
+   box-shadow:var(--shadow);
+}
+
+.form-container form h3{
+   font-size:2.4rem;
+   font-weight:800;
+   color:var(--ink);
+   text-transform:capitalize;
+   margin-bottom:2rem;
+}
+
+.form-container form .btn{ width:100%; margin-top:1.5rem; }
+
+.form-container form p{
+   margin-top:1.5rem;
+   font-size:1.4rem;
+   color:var(--muted);
+}
+
+.form-container form p a{ color:var(--green); font-weight:600; }
+.form-container form p a:hover{ text-decoration:underline; }
+
+/* =========================================================
+   CHECKOUT / PESANAN / PROFIL
+   ========================================================= */
+
+.checkout form{
+   max-width:52rem;
+   margin:0 auto;
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   padding:3rem;
+   box-shadow:var(--shadow);
+}
+
+.checkout form h3{
+   font-size:2rem;
+   font-weight:700;
+   text-transform:capitalize;
+   padding-bottom:1.5rem;
+   color:var(--ink);
+}
+
+.checkout form .cart-items{
+   background-color:#fff;
+   border:var(--border);
+   border-radius:var(--radius);
+   padding:2rem;
+   margin-bottom:1rem;
+}
+
+.checkout form .cart-items h3{ color:var(--ink); padding-top:0; }
+
+.checkout form .cart-items p{
+   display:flex;
+   align-items:center;
+   gap:1.5rem;
+   justify-content:space-between;
+   margin:.8rem 0;
+   line-height:1.6;
+   font-size:1.5rem;
+}
+
+.checkout form .cart-items p .name{ color:var(--muted); font-weight:500; }
+.checkout form .cart-items p .price{ color:var(--ink); font-weight:700; white-space:nowrap; }
+
+.checkout form .cart-items .grand-total{
+   background-color:var(--surface);
+   border-radius:var(--radius);
+   padding:1.2rem 1.6rem;
+   margin-top:1.5rem;
+   box-shadow:var(--shadow-sm);
+}
+
+.checkout form .cart-items .grand-total .name{ font-weight:700; color:var(--ink); }
+.checkout form .cart-items .grand-total .price{ color:var(--orange); font-size:1.9rem; font-weight:800; }
+
+.checkout form .user-info p{
+   font-size:1.5rem;
+   line-height:1.6;
+   padding:.6rem 0;
+   color:var(--muted);
+}
+
+.checkout form .user-info p i{ color:var(--green); margin-right:1rem; }
+.checkout form .user-info p span{ color:var(--ink); font-weight:600; }
+.checkout form .btn{ width:100%; }
+
+.orders .box-container{
+   display:grid;
+   grid-template-columns:repeat(auto-fill, minmax(32rem, 1fr));
+   gap:2rem;
+   align-items:flex-start;
+}
+
+.orders .box-container .box{
+   padding:2.5rem;
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   box-shadow:var(--shadow-sm);
+   transition:var(--ease);
+}
+
+.orders .box-container .box:hover{ box-shadow:var(--shadow); }
+
+.orders .box-container .box p{
+   line-height:1.6;
+   margin:.8rem 0;
+   font-size:1.5rem;
+   color:var(--muted);
+}
+
+.orders .box-container .box p span{ color:var(--ink); font-weight:600; }
+
+.user-details .user{
+   max-width:46rem;
+   margin:0 auto;
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   padding:3rem;
+   text-align:center;
+   box-shadow:var(--shadow);
+}
+
+.user-details .user img{
+   width:12rem; height:12rem;
+   object-fit:cover;
+   border-radius:50%;
+   margin:0 auto 2rem;
+   border:.4rem solid var(--green-soft);
+}
+
+.user-details .user p{
+   padding:.8rem 0;
+   line-height:1.6;
+   font-size:1.5rem;
+   color:var(--muted);
+   text-align:left;
+}
+
+.user-details .user p span{ color:var(--ink); font-weight:600; }
+.user-details .user p i{ margin-right:1rem; color:var(--green); }
+.user-details .user .address{ margin-top:1rem; }
+
+.quick-view form{
+   max-width:42rem;
+   padding:3rem;
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   margin:0 auto;
+   box-shadow:var(--shadow);
+}
+
+.quick-view form img{
+   height:24rem;
+   width:100%;
+   object-fit:contain;
+   margin-bottom:2rem;
+   background-color:#fff;
+   border:var(--border);
+   border-radius:var(--radius);
+   padding:2rem;
+}
+
+.quick-view form .cat{
+   font-size:1.2rem;
+   font-weight:700;
+   text-transform:uppercase;
+   letter-spacing:.1rem;
+   color:var(--green);
+   background-color:var(--green-soft);
+   padding:.4rem 1rem;
+   border-radius:var(--radius-pill);
+   display:inline-block;
+}
+
+.quick-view form .name{
+   font-size:2.2rem;
+   font-weight:700;
+   margin:1rem 0;
+   color:var(--ink);
+}
+
+.quick-view form .flex{
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+   gap:1.5rem;
+   margin:1.5rem 0;
+}
+
+.quick-view form .flex .price{ font-size:2.4rem; font-weight:800; color:var(--orange); }
+.quick-view form .flex .price span{ font-size:1.5rem; color:var(--muted); font-weight:600; }
+
+.quick-view form .flex .qty{
+   border:var(--border);
+   border-radius:var(--radius);
+   padding:1rem;
+   width:8rem;
+   font-size:1.5rem;
+   font-weight:600;
+   color:var(--ink);
+   background-color:var(--bg);
+}
+
+.quick-view form .cart-btn{
+   width:100%;
+   padding:1.4rem 3rem;
+   text-align:center;
+   border-radius:var(--radius-pill);
+   font-size:1.6rem;
+   font-weight:600;
+   color:#fff;
+   background-color:var(--green);
+   cursor:pointer;
+   text-transform:capitalize;
+   transition:var(--ease);
+}
+
+.quick-view form .cart-btn:hover{ background-color:var(--green-dark); }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer{
+   margin-top:auto;
+   background-color:var(--surface);
+   border-top:var(--border);
+}
+
+.footer .grid{
+   display:grid;
+   grid-template-columns:repeat(auto-fit, minmax(22rem, 1fr));
+   gap:2rem;
+   align-items:flex-start;
+}
+
+.footer .grid .box{
+   text-align:center;
+   padding:2rem 1.5rem;
+   border-radius:var(--radius-lg);
+   transition:var(--ease);
+}
+
+.footer .grid .box:hover{ background-color:var(--green-tint); }
+
+.footer .grid .box img{
+   height:5rem;
+   width:100%;
+   object-fit:contain;
+   margin-bottom:1.5rem;   /* dulu 20rem — footer jadi melar */
+}
+
+.footer .grid .box h3{
+   margin-bottom:.8rem;
+   font-size:1.6rem;
+   font-weight:700;
+   color:var(--ink);
+   text-transform:capitalize;
+}
+
+.footer .grid .box p,
+.footer .grid .box a{
+   display:block;
+   font-size:1.45rem;
+   color:var(--muted);
+   line-height:1.8;
+}
+
+.footer .grid .box a:hover{ color:var(--green); text-decoration:underline; }
+
+.credit{
+   text-align:center;
+   background-color:var(--ink);
+   color:rgba(255,255,255,.75);
+   padding:2rem;
+   font-size:1.4rem;
+}
+
+.credit span{ color:#fff; font-weight:700; }
+
+/* ---------- loader ---------- */
+
+.loader{
+   position:fixed;
+   inset:0;
+   z-index:100000;
+   background-color:var(--bg);
+   display:flex;
+   align-items:center;
+   justify-content:center;
+}
+
+.loader img{ height:15rem; }
+
+/* =========================================================
+   RESPONSIF
+   ========================================================= */
+
+@media (max-width:991px){
+   html{ font-size:58%; }
+   section{ padding:4rem 2rem; }
+}
+
+@media (max-width:768px){
+
+   #menu-btn{ display:grid; }
+
+   .header .flex .navbar{
+      position:absolute;
+      top:100%; left:0; right:0;
+      background-color:var(--surface);
+      border-bottom:var(--border);
+      box-shadow:var(--shadow);
+      padding:1rem 2rem;
+      transition:var(--ease);
+      clip-path:polygon(0 0, 100% 0, 100% 0, 0 0);
+   }
+
+   .header .flex .navbar a{
+      display:block;
+      margin:.5rem 0;
+      padding:1.2rem 1.6rem;
+   }
+
+   .header .flex .navbar.active{
+      clip-path:polygon(0 0, 100% 0, 100% 100%, 0 100%);
+   }
+
+   .hero .slide{ padding:2rem; }
+   .hero .slide .content h3{ font-size:4rem; }
+}
+
+@media (max-width:450px){
+
+   html{ font-size:54%; }
+
+   .title{ font-size:2.8rem; }
+   .heading h3{ font-size:3.2rem; }
+   .hero .slide .content h3{ font-size:3.4rem; }
+
+   .products .box-container,
+   .orders .box-container{ grid-template-columns:1fr; }
+
+   .products .cart-total{ justify-content:center; text-align:center; }
+
+   .flex-btn{ flex-flow:column; }
+
+   .header .flex .icons a[href="cart.php"]{ padding:0 1rem; }
+}

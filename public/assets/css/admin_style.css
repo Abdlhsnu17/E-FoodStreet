@@ -1,0 +1,659 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* =========================================================
+   ABDIBITES — PANEL ADMIN
+   Tema Hijau Segar, disamakan dengan sisi pengunjung.
+   Header ikut di file ini; admin_header.css hanya berisi
+   penyesuaian sidebar/menu agar tidak ada token kembar.
+   ========================================================= */
+
+:root{
+   --green:#15803d;
+   --green-dark:#166534;
+   --green-soft:#dcfce7;
+   --green-tint:#f0fdf4;
+
+   --main-color:var(--green);      /* alias lama, dipakai beberapa aturan */
+
+   --orange:#ea580c;
+   --amber:#f59e0b;
+
+   /* brand AbdiBites — dipakai logo */
+   --brand-dark:#3b2118;
+   --brand-orange:#e8801f;
+   --red:#dc2626;
+   --red-soft:#fee2e2;
+
+   --bg:#f7faf7;
+   --light-bg:var(--bg);
+   --surface:#ffffff;
+   --white:#ffffff;
+   --ink:#14281d;
+   --black:var(--ink);
+   --muted:#5f7268;
+   --light-color:var(--muted);
+   --line:#e3ebe5;
+
+   --radius:1.2rem;
+   --radius-lg:1.8rem;
+   --radius-pill:5rem;
+   --border:.1rem solid var(--line);
+
+   --shadow-sm:0 .1rem .2rem rgba(20,40,29,.06);
+   --box-shadow:0 .4rem 1.6rem rgba(20,40,29,.08);
+   --shadow-lg:0 1.2rem 3.2rem rgba(20,40,29,.12);
+
+   --ease:.25s cubic-bezier(.4,0,.2,1);
+}
+
+*{
+   font-family:'Plus Jakarta Sans', system-ui, sans-serif;
+   margin:0; padding:0;
+   box-sizing:border-box;
+   text-decoration:none;
+   outline:none; border:none;
+}
+
+*::selection{ color:#fff; background-color:var(--green); }
+
+*:focus-visible{
+   outline:.3rem solid var(--green);
+   outline-offset:.2rem;
+}
+
+::-webkit-scrollbar{ width:.8rem; height:.8rem; }
+::-webkit-scrollbar-track{ background-color:var(--green-tint); }
+::-webkit-scrollbar-thumb{ background-color:var(--green); border-radius:var(--radius-pill); }
+
+html{
+   font-size:62.5%;
+   overflow-x:hidden;
+   scroll-behavior:smooth;
+}
+
+body{
+   background-color:var(--bg);
+   color:var(--ink);
+   min-height:100vh;
+}
+
+img{ max-width:100%; display:block; }
+
+section{
+   max-width:120rem;
+   margin:0 auto;
+   padding:4rem 2rem;
+}
+
+.heading{
+   text-align:center;
+   margin-bottom:3rem;
+   font-size:3rem;
+   font-weight:800;
+   letter-spacing:-.05rem;
+   color:var(--ink);
+   text-transform:capitalize;
+}
+
+.heading::after{
+   content:'';
+   display:block;
+   width:5rem; height:.4rem;
+   margin:1rem auto 0;
+   border-radius:var(--radius-pill);
+   background-color:var(--green);
+}
+
+/* ---------- tombol ---------- */
+
+.btn,
+.delete-btn,
+.option-btn{
+   display:block;
+   margin-top:1rem;
+   border-radius:var(--radius-pill);
+   cursor:pointer;
+   width:100%;
+   font-size:1.5rem;
+   font-weight:600;
+   color:#fff;
+   padding:1.2rem 2.5rem;
+   text-transform:capitalize;
+   text-align:center;
+   transition:var(--ease);
+}
+
+.btn{ background-color:var(--green); }
+.btn:hover{ background-color:var(--green-dark); }
+
+.delete-btn{ background-color:var(--red); }
+.delete-btn:hover{ background-color:#b91c1c; }
+
+.option-btn{ background-color:var(--green-soft); color:var(--green-dark); }
+.option-btn:hover{ background-color:var(--green); color:#fff; }
+
+.btn:hover,
+.delete-btn:hover,
+.option-btn:hover{ box-shadow:var(--box-shadow); }
+
+.flex-btn{
+   display:flex;
+   gap:1rem;
+}
+
+.flex-btn > *{ flex:1; }
+
+.disabled{ opacity:.45; user-select:none; pointer-events:none; }
+
+/* ---------- tombol kembali ---------- */
+
+.back-bar{
+   max-width:120rem;
+   margin:0 auto;
+   padding:2.5rem 2rem 0;
+}
+
+.back-btn{
+   display:inline-flex;
+   align-items:center;
+   gap:1rem;
+   border-radius:var(--radius-pill);
+   font-size:1.5rem;
+   font-weight:600;
+   text-transform:capitalize;
+   padding:1.1rem 2.2rem;
+   color:var(--green-dark);
+   background-color:var(--green-soft);
+   transition:var(--ease);
+}
+
+.back-btn:hover{
+   color:#fff;
+   background-color:var(--green);
+   box-shadow:var(--box-shadow);
+}
+
+.back-btn i{ transition:var(--ease); }
+.back-btn:hover i{ transform:translateX(-.4rem); }
+
+/* ---------- pesan ---------- */
+
+.message{
+   position:sticky;
+   top:0;
+   z-index:1100;
+   max-width:120rem;
+   margin:1.5rem auto 0;
+   padding:1.4rem 2rem;
+   display:flex;
+   align-items:center;
+   gap:1rem;
+   justify-content:space-between;
+   background-color:var(--green-soft);
+   color:var(--green-dark);
+   border-left:.5rem solid var(--green);
+   border-radius:var(--radius);
+   box-shadow:var(--box-shadow);
+}
+
+.message span{ font-size:1.5rem; font-weight:600; }
+
+.message i{
+   font-size:1.8rem;
+   color:var(--green-dark);
+   cursor:pointer;
+   opacity:.6;
+   transition:var(--ease);
+}
+
+.message i:hover{ opacity:1; transform:rotate(90deg); }
+
+.empty{
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius);
+   padding:3rem 2rem;
+   text-align:center;
+   width:100%;
+   font-size:1.6rem;
+   font-weight:500;
+   text-transform:capitalize;
+   color:var(--muted);
+   box-shadow:var(--shadow-sm);
+}
+
+/* =========================================================
+   HEADER ADMIN
+   ========================================================= */
+
+.header{
+   position:sticky;
+   top:0; left:0; right:0;
+   z-index:1000;
+   background-color:rgba(255,255,255,.85);
+   backdrop-filter:blur(1.2rem);
+   -webkit-backdrop-filter:blur(1.2rem);
+   border-bottom:var(--border);
+}
+
+.header .flex{
+   display:flex;
+   align-items:center;
+   justify-content:space-between;
+   position:relative;
+   max-width:120rem;
+   margin:0 auto;
+   padding:1.6rem 2rem;
+}
+
+.header .flex .logo{
+   font-size:2.1rem;
+   font-weight:800;
+   letter-spacing:-.05rem;
+   color:var(--brand-dark);
+   display:flex;
+   align-items:center;
+   gap:.8rem;
+}
+
+.header .flex .logo span{ color:var(--brand-orange); }
+
+.header .flex .logo::before{
+   content:'';                      /* lambang tudung saji abdibites */
+   background-color:var(--brand-orange);
+   background-image:url('../images/logo-mark.svg');
+   background-size:78%;
+   background-position:center;
+   background-repeat:no-repeat;
+   width:3.4rem; height:3.4rem;
+   border-radius:var(--radius);
+   flex-shrink:0;
+}
+
+.header .flex .navbar a{
+   margin:0 .2rem;
+   font-size:1.5rem;
+   font-weight:600;
+   color:var(--muted);
+   padding:.8rem 1.3rem;
+   border-radius:var(--radius-pill);
+   transition:var(--ease);
+   display:inline-block;
+   text-transform:capitalize;
+}
+
+.header .flex .navbar a:hover{
+   color:var(--green-dark);
+   background-color:var(--green-soft);
+}
+
+.header .flex .icons{
+   display:flex;
+   align-items:center;
+   gap:.6rem;
+}
+
+.header .flex .icons > *{
+   font-size:1.7rem;
+   cursor:pointer;
+   color:var(--ink);
+   width:4.2rem; height:4.2rem;
+   border-radius:50%;
+   display:grid;
+   place-items:center;
+   transition:var(--ease);
+}
+
+.header .flex .icons > *:hover{
+   background-color:var(--green-soft);
+   color:var(--green-dark);
+}
+
+.header .flex .profile{
+   position:absolute;
+   top:110%; right:2rem;
+   background-color:var(--surface);
+   box-shadow:var(--shadow-lg);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   padding:2rem;
+   width:28rem;
+   display:none;
+   animation:fadeIn .2s var(--ease);
+}
+
+@keyframes fadeIn{
+   from{ opacity:0; transform:translateY(-.8rem); }
+}
+
+.header .flex .profile p{
+   margin-bottom:1rem;
+   font-size:1.7rem;
+   font-weight:700;
+   text-align:center;
+   color:var(--ink);
+}
+
+.header .flex .profile.active{ display:inline-block; }
+
+#menu-btn{ display:none; }
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.dashboard .box-container{
+   display:grid;
+   grid-template-columns:repeat(auto-fit, minmax(26rem, 1fr));
+   gap:2rem;
+   align-items:flex-start;
+}
+
+.dashboard .box-container .box{
+   border-radius:var(--radius-lg);
+   background-color:var(--surface);
+   border:var(--border);
+   padding:2.5rem;
+   text-align:center;
+   box-shadow:var(--shadow-sm);
+   transition:var(--ease);
+}
+
+.dashboard .box-container .box:hover{
+   transform:translateY(-.5rem);
+   box-shadow:var(--box-shadow);
+   border-color:var(--green-soft);
+}
+
+.dashboard .box-container .box h3{
+   font-size:3.6rem;
+   font-weight:800;
+   color:var(--ink);
+   letter-spacing:-.1rem;
+}
+
+.dashboard .box-container .box h3 span{ font-size:2.4rem; }
+
+.dashboard .box-container .box p{
+   font-size:1.5rem;
+   font-weight:600;
+   color:var(--muted);
+   margin-top:.5rem;
+   text-transform:capitalize;
+}
+
+/* =========================================================
+   PRODUK
+   ========================================================= */
+
+.add-products form,
+.update-product form,
+.form-container form{
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   padding:3rem;
+   margin:0 auto;
+   max-width:50rem;
+   box-shadow:var(--box-shadow);
+}
+
+.add-products form h3,
+.form-container form h3{
+   font-size:2.2rem;
+   font-weight:800;
+   color:var(--ink);
+   text-transform:capitalize;
+   margin-bottom:1.5rem;
+   text-align:center;
+}
+
+.add-products form .box,
+.update-product form .box,
+.form-container form .box{
+   width:100%;
+   margin:.8rem 0;
+   border-radius:var(--radius);
+   padding:1.4rem 1.6rem;
+   font-size:1.5rem;
+   color:var(--ink);
+   background-color:var(--bg);
+   border:var(--border);
+   transition:var(--ease);
+}
+
+.add-products form .box:focus,
+.update-product form .box:focus,
+.form-container form .box:focus{
+   border-color:var(--green);
+   background-color:var(--surface);
+   box-shadow:0 0 0 .3rem var(--green-soft);
+}
+
+.update-product form textarea{ resize:vertical; height:12rem; }
+
+.update-product form img{
+   height:18rem;
+   width:100%;
+   object-fit:contain;
+   margin-bottom:1.5rem;
+   background-color:#fff;
+   border:var(--border);
+   border-radius:var(--radius);
+   padding:1.5rem;
+}
+
+.update-product form span{
+   font-size:1.4rem;
+   font-weight:600;
+   color:var(--muted);
+   display:block;
+   margin-top:1rem;
+}
+
+.form-container{
+   min-height:100vh;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   padding:2rem;
+}
+
+/* kalau ada tombol kembali di atasnya, jangan paksa setinggi layar */
+.back-bar + .form-container{
+   min-height:auto;
+   padding-top:3rem;
+}
+
+.form-container form p{
+   margin-top:1.5rem;
+   font-size:1.4rem;
+   color:var(--muted);
+   text-align:center;
+}
+
+.form-container form p span{ color:var(--green); font-weight:600; }
+
+.show-products .box-container{
+   display:grid;
+   grid-template-columns:repeat(auto-fill, minmax(26rem, 1fr));
+   gap:2rem;
+   align-items:flex-start;
+}
+
+.show-products .box-container .box{
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   padding:1.5rem;
+   text-align:center;
+   box-shadow:var(--shadow-sm);
+   transition:var(--ease);
+
+   /* kolom + margin-top:auto pada tombol -> tombol selalu rata di dasar
+      kartu meski nama produk atau harga terbungkus ke baris berikutnya */
+   display:flex;
+   flex-direction:column;
+   height:100%;
+}
+
+.show-products .box-container .box .flex-btn{ margin-top:auto; padding-top:1rem; }
+
+.show-products .box-container .box:hover{
+   transform:translateY(-.5rem);
+   box-shadow:var(--shadow-lg);
+   border-color:var(--green-soft);
+}
+
+.show-products .box-container .box img{
+   height:18rem;
+   width:100%;
+   object-fit:contain;
+   margin-bottom:1.5rem;
+   background-color:#fff;
+   border:var(--border);
+   border-radius:var(--radius);
+   padding:1.5rem;
+}
+
+.show-products .box-container .box .name{
+   font-size:1.8rem;
+   font-weight:700;
+   color:var(--ink);
+   margin-bottom:1rem;
+   line-height:1.35;
+}
+
+.show-products .box-container .box .flex{
+   display:flex;
+   align-items:center;
+   justify-content:space-between;
+   gap:1rem;
+   flex-wrap:wrap;
+   margin-bottom:1rem;
+}
+
+.show-products .box-container .box .flex .price{
+   font-size:1.9rem;
+   font-weight:800;
+   color:var(--orange);
+}
+
+.show-products .box-container .box .flex .price span{
+   font-size:1.3rem;
+   font-weight:600;
+   color:var(--muted);
+}
+
+.show-products .box-container .box .flex .category{
+   font-size:1.2rem;
+   font-weight:700;
+   text-transform:uppercase;
+   letter-spacing:.1rem;
+   color:var(--green);
+   background-color:var(--green-soft);
+   padding:.4rem 1rem;
+   border-radius:var(--radius-pill);
+}
+
+/* =========================================================
+   PESANAN / AKUN / PESAN MASUK
+   ========================================================= */
+
+.placed-orders .box-container,
+.accounts .box-container,
+.messages .box-container{
+   display:grid;
+   grid-template-columns:repeat(auto-fill, minmax(30rem, 1fr));
+   gap:2rem;
+   align-items:flex-start;
+}
+
+.placed-orders .box-container .box,
+.accounts .box-container .box,
+.messages .box-container .box{
+   background-color:var(--surface);
+   border:var(--border);
+   border-radius:var(--radius-lg);
+   padding:2.5rem;
+   box-shadow:var(--shadow-sm);
+   transition:var(--ease);
+}
+
+.placed-orders .box-container .box:hover,
+.accounts .box-container .box:hover,
+.messages .box-container .box:hover{ box-shadow:var(--box-shadow); }
+
+.placed-orders .box-container .box p,
+.accounts .box-container .box p,
+.messages .box-container .box p{
+   line-height:1.6;
+   margin:.8rem 0;
+   font-size:1.5rem;
+   color:var(--muted);
+}
+
+.placed-orders .box-container .box p span,
+.accounts .box-container .box p span,
+.messages .box-container .box p span{
+   color:var(--ink);
+   font-weight:600;
+}
+
+.placed-orders .box-container .box .drop-down{
+   width:100%;
+   margin-top:1rem;
+   border-radius:var(--radius);
+   padding:1.2rem 1.4rem;
+   font-size:1.5rem;
+   font-weight:600;
+   color:var(--ink);
+   background-color:var(--bg);
+   border:var(--border);
+   cursor:pointer;
+}
+
+.placed-orders .box-container .box .drop-down:focus{
+   border-color:var(--green);
+   box-shadow:0 0 0 .3rem var(--green-soft);
+}
+
+/* =========================================================
+   RESPONSIF
+   ========================================================= */
+
+@media (max-width:991px){
+   html{ font-size:58%; }
+}
+
+@media (max-width:768px){
+
+   #menu-btn{ display:grid; }
+
+   .header .flex .navbar{
+      position:absolute;
+      top:100%; left:0; right:0;
+      background-color:var(--surface);
+      border-bottom:var(--border);
+      box-shadow:var(--box-shadow);
+      padding:1rem 2rem;
+      transition:var(--ease);
+      clip-path:polygon(0 0, 100% 0, 100% 0, 0 0);
+   }
+
+   .header .flex .navbar.active{
+      clip-path:polygon(0 0, 100% 0, 100% 100%, 0 100%);
+   }
+
+   .header .flex .navbar a{
+      display:block;
+      margin:.5rem 0;
+      padding:1.2rem 1.6rem;
+   }
+}
+
+@media (max-width:450px){
+   html{ font-size:54%; }
+   .heading{ font-size:2.4rem; }
+   .flex-btn{ flex-flow:column; }
+}

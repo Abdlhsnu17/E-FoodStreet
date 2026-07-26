@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 180" role="img" aria-label="AbdiBites — Good Food, Good Mood">
+   <title>AbdiBites — Good Food, Good Mood</title>
+
+   <!-- lambang -->
+   <g transform="translate(20 30)">
+      <rect width="120" height="120" rx="30" fill="#e8801f"/>
+      <g transform="translate(28 28) scale(1.03)">
+         <!-- topi koki -->
+         <path d="M14 22a9 9 0 0 1 8-9 10 10 0 0 1 18 0 9 9 0 0 1 8 9 8.5 8.5 0 0 1-6 8v6H20v-6a8.5 8.5 0 0 1-6-8z"
+               fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linejoin="round"/>
+         <!-- tudung saji -->
+         <path d="M6 60a25 25 0 0 1 50 0z" fill="#ffffff"/>
+         <circle cx="31" cy="32" r="4" fill="#ffffff"/>
+         <rect x="1" y="62" width="60" height="7" rx="3.5" fill="#ffffff"/>
+      </g>
+   </g>
+
+   <!-- wordmark -->
+   <text x="164" y="98"
+         font-family="'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif"
+         font-size="62" font-weight="800" letter-spacing="-2">
+      <tspan fill="#3b2118">Abdi</tspan><tspan fill="#e8801f">Bites</tspan>
+   </text>
+
+   <text x="167" y="128"
+         font-family="'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif"
+         font-size="17" font-weight="600" letter-spacing="4.5" fill="#8a7268">
+      GOOD FOOD, GOOD MOOD
+   </text>
+</svg>
